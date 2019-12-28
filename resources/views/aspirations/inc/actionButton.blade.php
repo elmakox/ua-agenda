@@ -1,0 +1,2 @@
+<a href="{{ route('aspirations.edit', $data->id) }}" class="btn btn-sm btn-outline-info editUserBtn"><i class="feather-edit-2"></i> Edit</a>
+<button type="button" data-loading-text="<span class='spinner-border spinner-border-sm mr-1'></span> Loading..." class="btn btn-sm btn-outline-danger deleteAspirationBtn" data-route="{{ route('projects.destroy', $data->id) }}"><i class="feather-trash-2"></i> Delete</button>
