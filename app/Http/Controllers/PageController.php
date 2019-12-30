@@ -54,7 +54,11 @@ class PageController extends Controller
 	    if ($page->save()) {
 	        $page->projects()->sync($request->projects);
 	        $page->aspirations()->sync($request->aspirations);
+	        
+	        return redirect()->route('pages.index')->with('success', 'Page created successfully');
 	    }
+	
+//	    return redirect()->route('pages.index')->with('success', 'Page created successfully');
     }
     
     public function edit(Page $page)
@@ -84,6 +88,8 @@ class PageController extends Controller
 	    if ($page->update()) {
 		    $page->projects()->sync($request->projects);
 		    $page->aspirations()->sync($request->aspirations);
+		
+		    return redirect()->route('pages.index')->with('success', 'Page updated successfully');
 	    }
     }
     

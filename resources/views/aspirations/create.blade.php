@@ -26,11 +26,21 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="text" id="title" name="title" class="form-control form-control-lg" placeholder="Title of the aspiration" required>
+                            <input type="text" id="title" name="title" class="form-control form-control-lg @error('title') is-invalid @enderror" placeholder="Title of the aspiration" value="{{ old('title') }}" required>
+                            @error('title')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <input type="hidden" name="body">
-                            <textarea name="body" id="body" rows="6" class="form-control"></textarea>
+                            <textarea name="body" id="body" rows="6" class="form-control @error('body') is-invalid @enderror"></textarea>
+                            @error('body')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <hr>
                         <label >Goals</label>
@@ -56,9 +66,9 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="thumbnail">Featured Image</label>
-                            <img id="holder" class="img-fluid rounded my-2">
+                            <img id="holder" class="img-fluid rounded my-2" src="{{ old('image') ? asset(old('image')) : '' }}">
                             <div class="input-group">
-                                <input type="text" name="image" id="thumbnail" class="form-control">
+                                <input type="text" name="image" id="thumbnail" class="form-control" value="{{ old('image') }}">
                                 <div class="input-group-append">
                                     <button data-input="thumbnail" data-preview="holder" class="lfm btn btn-dark waves-effect waves-light" type="button">Choose an image</button>
                                 </div>
@@ -79,9 +89,11 @@
 @push('js')
     <script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
     <script src="{{ asset('assets/plugins/handlebars/handlebars.js') }}"></script>
+    <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
         window.idx = 1;
         $(document).ready(function () {
+            CKEDITOR.replace( 'body' );
             var template = Handlebars.compile($("#goal-template").html());
             $('.lfm').filemanager('image');
 

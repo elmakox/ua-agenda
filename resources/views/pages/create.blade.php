@@ -26,11 +26,20 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="form-group">
-                            <input type="text" id="title" name="title" class="form-control form-control-lg" placeholder="Title of the page" required>
+                            <input type="text" id="title" name="title" class="form-control form-control-lg @error('title') is-invalid @enderror" placeholder="Title of the page" value="{{ old('title') }}" required>
+                            @error('title')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <input type="hidden" name="body">
-                            <textarea name="body" id="body" rows="6" class="form-control"></textarea>
+                            <textarea name="body" id="body" rows="6" class="form-control @error('body') is-invalid @enderror">{{ old('body') }}</textarea>
+                            @error('body')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <hr>
                         <label >Additional links</label>

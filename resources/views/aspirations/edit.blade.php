@@ -102,9 +102,11 @@
 @push('js')
     <script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
     <script src="{{ asset('assets/plugins/handlebars/handlebars.js') }}"></script>
+    <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
         window.idx = $('#goalsTable').data('count') + 1;
         $(document).ready(function () {
+            CKEDITOR.replace( 'body' );
             var template = Handlebars.compile($("#goal-template").html());
             $('.lfm').filemanager('image');
 

@@ -14,6 +14,7 @@
     <link href="{{ asset('assets/css/theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/datatables/responsive.bootstrap4.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.css') }}">
     @stack('css')
 </head>
 <body>
@@ -38,8 +39,29 @@
     <script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('assets/js/helpers.js') }}"></script>
     <script src="{{ asset('assets/js/theme.js') }}"></script>
+    <script>
+        @if (session()->has('success'))
+            Swal.fire({
+                title: "Good job!",
+                text: "{{ Session::get('success') }}",
+                type: "success",
+                confirmButtonClass: "btn btn-confirm mt-2"
+            });
+        @endif
+
+        @if (session()->has('error'))
+            Swal.fire({
+                type: "error",
+                title: "Oops... Something went wrong!",
+                text: "{{ Session::get('error') }}",
+                confirmButtonClass: "btn btn-confirm mt-2",
+            });
+        @endif
+    </script>
+
     @stack('js')
 </body>
 </html>
