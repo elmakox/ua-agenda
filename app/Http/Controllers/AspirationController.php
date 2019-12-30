@@ -52,6 +52,8 @@ class AspirationController extends Controller
 		$aspiration->goals = $request->goal ? array_values($request->goal) : [];
 		
 		$aspiration->save();
+		
+		return redirect()->route('aspirations.index')->with('success', 'Aspiration created successfully');
 	}
 	
 	
@@ -74,6 +76,8 @@ class AspirationController extends Controller
 		$aspiration->goals = $request->goal ? array_values($request->goal) : [];
 		
 		$aspiration->update();
+		
+		return redirect()->route('aspirations.index')->with('success', 'Aspiration updated successfully');
 	}
 	
 	

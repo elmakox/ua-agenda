@@ -53,6 +53,8 @@ class ProjectController extends Controller
 	    $project->goals = $request->goal ? array_values($request->goal) : [];
 	    
 	    $project->save();
+	
+	    return redirect()->route('projects.index')->with('success', 'Project created successfully');
     }
 
 
@@ -75,6 +77,8 @@ class ProjectController extends Controller
 	    $project->goals = $request->goal ? array_values($request->goal) : [];
 	
 	    $project->update();
+	
+	    return redirect()->route('projects.index')->with('success', 'Project updated successfully');
     }
 
  
