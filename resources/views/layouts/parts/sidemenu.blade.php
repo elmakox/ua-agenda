@@ -40,6 +40,22 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="feather-activity"></i><span>Progress</span></a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('progress.index') }}">All progress</a></li>
+                        <li><a href="{{ route('progress.create') }}">New progress</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="feather-bookmark"></i><span>News</span></a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('news.index') }}">All news</a></li>
+                        <li><a href="{{ route('news.create') }}">New news</a></li>
+                    </ul>
+                </li>
+
                 <li><a href="calendar.html" class=" waves-effect"><i class="feather-calendar"></i><span>Calendar</span></a></li>
 
                 <li class="menu-title">Administration</li>

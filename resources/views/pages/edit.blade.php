@@ -163,7 +163,7 @@
     <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
     <script>
         window.links = $('#linksTable').data('count') + 1;
-        window.medias = $('#mediaTable').data('count') + 1;;
+        window.medias = $('#mediaTable').data('count') + 1;
         $(document).ready(function () {
             var linkTemplate = Handlebars.compile($("#link-template").html()),
                 mediaTemplate = Handlebars.compile($("#media-template").html());

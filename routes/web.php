@@ -59,4 +59,26 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::put('/{aspiration}', 'AspirationController@update')->name('aspirations.update');
 		Route::delete('/{aspiration}', 'AspirationController@destroy')->name('aspirations.destroy');
 	});
+	
+	Route::group(['prefix' => 'progress'], function () {
+		Route::get('/', 'ProgressController@index')->name('progress.index');
+		Route::get('/datatable', 'ProgressController@datatable')->name('progress.datatable');
+		Route::get('/create', 'ProgressController@create')->name('progress.create');
+		Route::get('/{progress}/edit', 'ProgressController@edit')->name('progress.edit');
+		
+		Route::post('/', 'ProgressController@store')->name('progress.store');
+		Route::put('/{progress}', 'ProgressController@update')->name('progress.update');
+		Route::delete('/{progress}', 'ProgressController@destroy')->name('progress.destroy');
+	});
+	
+	Route::group(['prefix' => 'news'], function () {
+		Route::get('/', 'NewsController@index')->name('news.index');
+		Route::get('/datatable', 'NewsController@datatable')->name('news.datatable');
+		Route::get('/create', 'NewsController@create')->name('news.create');
+		Route::get('/{news}/edit', 'NewsController@edit')->name('news.edit');
+		
+		Route::post('/', 'NewsController@store')->name('news.store');
+		Route::put('/{news}', 'NewsController@update')->name('news.update');
+		Route::delete('/{news}', 'NewsController@destroy')->name('news.destroy');
+	});
 });
