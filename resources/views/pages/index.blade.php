@@ -65,7 +65,12 @@
                         },
                         success: function() {
                             $('#pages').DataTable().ajax.reload();
-                            // toastr.success('Utilisateur supprimé avec succès');
+                            Swal.fire({
+                                title: "Good job!",
+                                text: "Item deleted successfully",
+                                type: "success",
+                                confirmButtonClass: "btn btn-confirm mt-2"
+                            });
                             $btn.button('reset');
                         },
                         error: function(data) {
