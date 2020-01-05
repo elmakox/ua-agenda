@@ -57,7 +57,7 @@
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="link[{{ $loop->index }}][title]" autocomplete="off" placeholder="Url of the link" value="{{ $link['url'] }}">
+                                                    <input type="text" class="form-control" name="link[{{ $loop->index }}][url]" autocomplete="off" placeholder="Url of the link" value="{{ $link['url'] }}">
                                                 </div>
                                             </td>
                                             <td>
