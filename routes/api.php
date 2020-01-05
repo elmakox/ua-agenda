@@ -22,5 +22,10 @@ Route::group(['namespace' => 'API'], function () {
 		Route::get('/', 'AspirationController@index');
 		Route::get('/{aspiration}', 'AspirationController@get');
 	});
+	
+	Route::group(['prefix' => 'pages'], function () {
+		Route::get('/', 'PageController@index');
+		Route::get('/{page}', 'PageController@get');
+	});
 });
 
