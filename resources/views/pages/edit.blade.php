@@ -57,6 +57,11 @@
                                             </td>
                                             <td>
                                                 <div class="form-group">
+                                                    <input type="text" class="form-control" name="link[{{ $loop->index }}][title]" autocomplete="off" placeholder="Url of the link" value="{{ $link['url'] }}">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-group">
                                                     <select class="form-control" name="link[{{ $loop->index }}][link]" id="link-{{ $loop->index }}">
                                                         <option value="internal" {{ $link['link'] == 'internal' ? 'selected' : '' }}>Internal</option>
                                                         <option value="external" {{ $link['link'] == 'external' ? 'selected' : '' }}>External</option>

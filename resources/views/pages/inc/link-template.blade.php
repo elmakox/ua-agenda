@@ -10,6 +10,11 @@
         </td>
         <td>
             <div class="form-group">
+                <input type="text" class="form-control" name="link[@{{ id }}][url]" autocomplete="off" placeholder="Url of the link">
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
                 <select class="form-control" name="link[@{{ id }}][link]" id="link-@{{ id }}">
                     <option value="internal">Internal</option>
                     <option value="external">External</option>

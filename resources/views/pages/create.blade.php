@@ -49,6 +49,7 @@
                                 <tr>
                                     <th style="width: 30px"></th>
                                     <th>Title</th>
+                                    <th>Url</th>
                                     <th>Link</th>
                                     <th style="width: 12px"></th>
                                 </tr>
