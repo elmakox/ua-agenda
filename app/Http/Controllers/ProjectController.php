@@ -8,7 +8,7 @@ use Yajra\DataTables\DataTables;
 
 class ProjectController extends Controller
 {
-    
+
     public function index()
     {
         return view('projects.index');
@@ -17,20 +17,17 @@ class ProjectController extends Controller
     public function datatable()
     {
         $projects = Project::all();
-        
+
         return DataTables::of($projects)
 	                    ->editColumn('image', function ($data) {
 	                    	return '<img src="' . asset($data->image_url()) . '" class="img-fluid rounded" style="max-width: 50px">';
-	                    })
-	                    ->editColumn('goals', function ($data) {
-	                    	return $data->goals ? count($data->goals) : 0;
 	                    })
 				        ->addColumn('actions', function ($data) {
 					        return view('projects.inc.actionButton', compact('data'));
 				        })->rawColumns(['image'])
 				        ->make(true);
     }
-   
+
     public function create()
     {
 	    return view('projects.create');
@@ -45,15 +42,14 @@ class ProjectController extends Controller
 		    'body' => 'required|string|',
 	    ];
 	    $this->validate($request, $rules);
-	    
+
 	    $project = new Project();
 	    $project->title = $request->title;
 	    $project->body = $request->body;
 	    $project->image = $request->image;
-	    $project->goals = $request->goal ? array_values($request->goal) : [];
-	    
+
 	    $project->save();
-	
+
 	    return redirect()->route('projects.index')->with('success', 'Project created successfully');
     }
 
@@ -70,22 +66,21 @@ class ProjectController extends Controller
 		    'body' => 'required|string|',
 	    ];
 	    $this->validate($request, $rules);
-	
+
 	    $project->title = $request->title;
 	    $project->body = $request->body;
 	    $project->image = $request->image;
-	    $project->goals = $request->goal ? array_values($request->goal) : [];
-	
+
 	    $project->update();
-	
+
 	    return redirect()->route('projects.index')->with('success', 'Project updated successfully');
     }
 
- 
+
     public function destroy(Project $project)
     {
         $project->delete();
-        
+
         return response()->json(null, 200);
     }
 }

@@ -42,22 +42,6 @@
                                 </span>
                             @enderror
                         </div>
-                        <hr>
-                        <label >Goals</label>
-                        <div class="clearfix">
-                            <table class="table table-bordered" id="goalsTable">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 30px"></th>
-                                        <th>Goal</th>
-                                        <th style="width: 12px"></th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                            <button type="button" id="addGoalBtn" class="btn btn-sm btn-dark float-right">Add new goal</button>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -83,26 +67,15 @@
             </div>
         </div>
     </form>
-@include('projects.inc.goal-template')
 @endsection
 
 @push('js')
     <script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
-    <script src="{{ asset('assets/plugins/handlebars/handlebars.js') }}"></script>
     <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
-        window.idx = 1;
         $(document).ready(function () {
-            var template = Handlebars.compile($("#goal-template").html());
             CKEDITOR.replace( 'body' );
             $('.lfm').filemanager('image');
-
-            $(document).on('click', '#addGoalBtn', function () {
-                var $goalsTable = $('#goalsTable').find('tbody'),
-                    data = {id : window.idx};
-                $goalsTable.append(template(data));
-                window.idx++;
-            });
         });
     </script>
 @endpush

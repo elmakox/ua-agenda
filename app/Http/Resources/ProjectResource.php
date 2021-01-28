@@ -22,7 +22,6 @@ class ProjectResource extends JsonResource
 	        	'thumb' => asset($this->image_url(true)),
 		        'url' => asset($this->image_url(false))
 	        ],
-	        'goals' => $this->goals
         ];
     }
 }

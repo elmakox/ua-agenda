@@ -63,6 +63,9 @@
                 <li>
                     <a href="{{ route('users.index') }}" class="waves-effect"><i class="feather-user"></i><span>Users</span></a>
                 </li>
+                <li>
+                    <a href="{{ route('settings.index') }}" class="waves-effect"><i class="feather-settings"></i><span>Settings</span></a>
+                </li>
             </ul>
         </div>
     </div>

@@ -32,45 +32,6 @@
                             <input type="hidden" name="body">
                             <textarea name="body" id="body" rows="6" class="form-control">{{ $project->body }}</textarea>
                         </div>
-                        <hr>
-                        <label >Goals</label>
-                        <div class="clearfix">
-                            <table class="table table-bordered" id="goalsTable" data-count="{{ $project->goals ? count($project->goals) : 0 }}">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 30px"></th>
-                                        <th>Goal</th>
-                                        <th style="width: 12px"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if ($project->goals)
-                                        @foreach($project->goals as $goal)
-                                            <tr>
-                                                <td class="slide-count p-1 bg-light text-center" style="width: 30px; vertical-align: middle;">
-                                                    <span>{{ $loop->index + 1 }}</span>
-                                                </td>
-                                                <td class="goal-fields">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" name="goal[{{ $loop->index }}][title]" autocomplete="off" placeholder="Title of the goal" value="{{ $goal['title'] }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea class="form-control" name="goal[{{ $loop->index }}][body]" rows="3" placeholder="The goal">{{ $goal['body'] }}</textarea>
-                                                    </div>
-                                                </td>
-                                                <td class="slide-remove p-1 bg-light text-center" style="width: 12px; vertical-align: middle;">
-                                                    <button type="button" class="btn btn-sm btn-danger removeRow">
-                                                        <i class="feather-minus-circle"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @endif
-                                </tbody>
-                            </table>
-                            <button type="button" id="addGoalBtn" class="btn btn-sm btn-dark float-right">Add new goal</button>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -96,26 +57,16 @@
             </div>
         </div>
     </form>
-@include('projects.inc.goal-template')
 @endsection
 
 @push('js')
     <script src="{{ asset('vendor/laravel-filemanager/js/lfm.js') }}"></script>
-    <script src="{{ asset('assets/plugins/handlebars/handlebars.js') }}"></script>
     <script src="{{ asset('assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
-        window.idx = $('#goalsTable').data('count') + 1;
         $(document).ready(function () {
             CKEDITOR.replace( 'body' );
-            var template = Handlebars.compile($("#goal-template").html());
             $('.lfm').filemanager('image');
 
-            $(document).on('click', '#addGoalBtn', function () {
-                var $goalsTable = $('#goalsTable').find('tbody'),
-                    data = {id : window.idx};
-                $goalsTable.append(template(data));
-                window.idx++;
-            });
         });
     </script>
 @endpush

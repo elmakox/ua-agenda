@@ -28,7 +28,6 @@
                             <tr>
                                 <th style="width: 60px;"></th>
                                 <th>Title</th>
-                                <th>Goals</th>
                                 <th>Date of creation</th>
                                 <th>Actions</th>
                             </tr>
@@ -50,7 +49,6 @@
                 columns: [
                     {data: 'image', name: 'image', sortable: false, searchable: false},
                     {data: 'title', name: 'title'},
-                    {data: 'goals', name: 'goals'},
                     {data: 'created_at', name: 'created_at'},
                     {data: 'actions', name: 'actions', sortable: false, searchable: false},
                 ],
