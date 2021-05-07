@@ -11,7 +11,7 @@
         "php": "^7.2",
         "astrotomic/laravel-translatable": "^11.7",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "6.20.12",
+        "laravel/framework": "6.18.43",
         "laravel/helpers": "^1.1",
         "laravel/passport": "^8.0",
         "laravel/tinker": "^2.0",
